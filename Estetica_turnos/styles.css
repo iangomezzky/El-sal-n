@@ -1,0 +1,113 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+    color: #4a4a4a;
+    margin: 0;
+    padding: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #e79cb8;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 2.2vw;
+}
+
+.container {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 3vw;
+    width: 100%;
+    max-width: 700px;
+    animation: fadeIn 1.5s ease;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.2vw;
+    width: 100%;
+}
+
+input, select {
+    padding: 1vw;
+    border: 1px solid #e79cb8;
+    border-radius: 10px;
+    font-size: 1.2vw;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+input:hover, select:hover {
+    box-shadow: 0 0 8px #e79cb8;
+    transform: scale(1.02);
+}
+
+button {
+    padding: 1vw;
+    background-color: #e79cb8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #d77aa2;
+    transform: scale(1.05);
+}
+
+#lista-turnos {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+#lista-turnos li {
+    background-color: #fff8fa;
+    border-left: 5px solid #e79cb8;
+    margin-bottom: 10px;
+    padding: 1.5vw;
+    border-radius: 10px;
+    position: relative;
+    font-size: 1.2vw;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#lista-turnos li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+}
+
+#lista-turnos button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: #d44a6a;
+    border: none;
+    font-size: 1.5vw;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
