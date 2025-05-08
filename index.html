@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salón de Belleza</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --rosa: #e79cb8;
+      --rosado-claro: #fff0f5;
+      --rosado-medio: #ffe4e1;
+      --gris-oscuro: #4a4a4a;
+      --sombra: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, var(--rosado-claro), var(--rosado-medio));
+      color: var(--gris-oscuro);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px var(--sombra);
+      padding: 2rem;
+      margin: 2rem 1rem;
+      width: 100%;
+      max-width: 700px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--rosa);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, select, button {
+      font-size: 1rem;
+      padding: 0.8rem;
+      border-radius: 10px;
+    }
+
+    input, select {
+      border: 1px solid var(--rosa);
+    }
+
+    button {
+      background-color: var(--rosa);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #d77aa2;
+    }
+
+    #lista-turnos {
+      list-style: none;
+      padding: 0;
+    }
+
+    #lista-turnos li {
+      background: #fff8fa;
+      border-left: 5px solid var(--rosa);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #lista-turnos button {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      background: none;
+      color: #d44a6a;
+      font-size: 1.2rem;
+    }
+
+    .info {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .mas-info {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .equipo {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .miembro {
+      width: 120px;
+      text-align: center;
+    }
+
+    .miembro img {
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px var(--sombra);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      input, select, button {
+        font-size: 0.9rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Salón de Belleza - Gestión de Turnos</h1>
+    <form id="turno-form">
+      <input type="text" id="cliente" placeholder="Nombre de cliente" required>
+      <input type="datetime-local" id="fecha" required>
+      <select id="servicio" required>
+        <option value="">Elegí un servicio</option>
+        <option value="Uñas">Uñas</option>
+        <option value="Masajes">Masajes</option>
+        <option value="Depilación">Depilación</option>
+      </select>
+      <input type="text" id="telefono" placeholder="Teléfono (opcional)">
+      <button type="submit">Agregar turno</button>
+    </form>
+
+    <h2>Turnos del Día</h2>
+    <ul id="lista-turnos"></ul>
+
+    <div class="info">
+      <p><strong>¡Bienvenid@!</strong> Somos un equipo apasionado por realzar tu belleza. Este espacio nació con el deseo de brindar cuidado y amor en cada detalle. <br>
+        <em>"Tu belleza, nuestra inspiración."</em>
+      </p>
+      <div class="mas-info">
+        <button onclick="mostrarEquipo()">Conocé al equipo</button>
+      </div>
+      <div class="equipo" id="equipo">
+        <div class="miembro">
+          <img src="https://via.placeholder.com/120" alt="Ana">
+          <p>Ana</p>
+        </div>
+        <div class="miembro">
+          <img src="https://via.placeholder.com/120" alt="Luisa">
+          <p>Luisa</p>
+        </div>
+        <div class="miembro">
+          <img src="https://via.placeholder.com/120" alt="Cami">
+          <p>Cami</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function mostrarEquipo() {
+      const equipo = document.getElementById("equipo");
+      equipo.style.display = equipo.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+</body>
+</html>
